@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <section> 
+    <title>Painful Pronto Paint Program</title>
+
+    
+    </section>
+    
+    <link rel="stylesheet" href="css/paint.css"/>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/paint.js"></script>
+    <script src="js/drawingtools.js"></script>
+    <script src="js/jscolor/jscolor.js"></script>
+    <script type="text/javascript">
+        // Run when the DOM is ready
+        $(document).ready(function () {
+            // Create the pseudo object which will handle the main canvas
+            paint = new PaintObject("canvasMain");
+            // Bind events to the canvas
+            paint.bindMultiplexEvents();
+        });
+    </script>
+</head>
+<body>
+<div id="home">
+    <div id="content">
+        <div id="divCanvas">
+            <canvas id="canvasMain">
+                <p>Canvas tag not supported by your browser</p>
+            </canvas>
+        </div>
+
+    </div>
+   
+    <div id="righColumn">
+        <div id="text">
+            <h4>Painful Pronto Paint Program </h4>
+            <h5> * Rectangle is set as Default *</h5>
+            <p> Step 1: Select a shape you want to draw. <br>
+                <br>
+            Step 2: Select a color you want to use for <br>
+            your drawing or you can check the box for <br>
+            no fill. <br>
+            <br>
+            Step 3: Select a stroke color.<br>
+            <br>
+            Step 4: Choose your Stroke size by sliding the bar</p>
+        </div>
+        <div id="drawCommands">
+            <h6>Pick a tool</h6>
+            <span id="rectangle">Rectangle</span>
+            <span id="circle">circle</span> 
+            <span id="triangle">Triangle</span>
+            <span id="line">Line</span>
+            <span id="pencil">Pencil</span>
+            <div id="buttons">
+                <br>
+            <input type="Button" id="clear" value= "Clear Canvas">
+            </div>
+            <ul>
+                <li>
+                    Fill color:
+                    
+                    <input id="fillColor" class="color" value="FFFFFF"/>
+                </li>
+                <li>
+                    Stroke color:
+                   
+                    <input id="strokeColor" class="color" value="000000"/>
+                </li>
+                <li>
+                    
+                    Stroke size: <input id="strokeSize" type="range" min="0" max="20" value="1" step="0.5" style="position:relative;top:6px;"/>
+                </li>
+                <li>
+                    Fill shapes : <input id="fillShapes" type="checkbox" checked/>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+
+
+<Script>
+    document.getElementById('clear').addEventListener('click', function() {
+        context.clearRect(0,0, divCanvas.width, divCanvas.height);
+    }, false);
+</Script>
+</body>
+</html>
